@@ -1,4 +1,3 @@
-print("==== REPORTE DEL SENSOR ====")
 # Entrada de Datos
 while True:
     name_student = input("Ingrese el Nombre del estudiante: ")
@@ -8,27 +7,35 @@ while True:
     else:
         print("Error: Entrada no válida, ingrese un nombre (Ej: Alonso Carrera)")
 while True: # Bucle para repetir hasta que la entrada sea válida
-    name_equipo = input("Ingrese el Nombre del equipo: ")
-    # Verifica si al menos uno de los caracteres es una letra
-    if any(a.isalpha() for a in name_equipo):
-        break # Salida del bucle porque el nombre es válido
-    else:
-        print("Error: Intentalo de nuevo)")
+    try:
+        number_equipo = int(input("Ingrese el Número del equipo: "))
+        break  # Entrada válida, salir del bucle
+    except ValueError:
+        print("Error: Inténtalo de nuevo.(Ej: 12)")
 # Lecturas de voltaje
-print("=== LECTURAS DEL SENSOR ===")
+print("La lista de lectura se termina cuando deja  de poner comas")  
 while True: # Bucle para repetir hasta que la entrada sea válida
     try:
-        # Conversion de las lecturas a float usando map y split es el espacio entre lecturas
-        Lectura1, Lectura2 = map(float, input("Lecturas (V): ").split(","))
+        # Conversion de las lecturas a float usando map y split con coma entre lecturas
+        lecturas = list(map(lambda x: float(x.strip()),input("Lecturas (V): ").split(",")))
+      
         break # Salida del bucle porque las lecturas son válidas
     except ValueError:
-         print("Error: Entrada no válida (Ej: 12.5 , 15.3)")
-promedio = (Lectura1 + Lectura2) / 2
-print(f"Promedio : {promedio :.3f} V") # Mostrar promedio con 3 decimales
+            print("Solo permite numeros (Ej: 12.5 , 15.3)")
+# Cálculo del promedio
+promedio = (sum(lecturas)) / len(lecturas) 
 # Condicionales para el Estado del sensor
 if promedio >= 5: # Condicion if si la "Condicion 1" es verdadera
-    print("Estado : Umbral alto")
+    ESTADO = "ALTO ( >= 5V )"
 elif promedio < 0: # Condicion elif si la "Condicion 2" es verdadera
-    print("Estado : Umbral bajo")
+    ESTADO= "BAJO ( < 0V )"
 else: # Condicion else es la "Condicion 3" si ninguna condición anterior fue verdadera
-        print("Estado : Umbral medio")
+    ESTADO= "MEDIO ( >= 5V Y > 0V )"
+        
+print("==== REPORTE DEL SENSOR ====")
+print(f"Nombre del estudiante : {name_student} / Número del equipo : {number_equipo} ") 
+print("=== LECTURAS DEL SENSOR ===")
+# Muestra las lecturas como cadena separada por comas / Promedio con 2 decimales
+print(f"Lecturas : {', '.join(map(str, lecturas))} V / Promedio : {promedio :.2f} V ")  
+print(f"Estado del sensor : {ESTADO} ")
+

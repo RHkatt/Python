@@ -12,7 +12,7 @@ print(f"La edad de {travel[0]} es: {travel[1]} años / Su numero de telefono es:
 
 nuevo = {"nombre":"Ana","edad":30,"profesion":"Ing. Ambiental","telefono":987654321} #Diccionario
 nuevo1 = {"nombre":"Kamila","edad":21,"profesion":"Ing. Aeronatica","telefono":983543256} #Diccionario
-print(nuevo["nombre"]) #Acceder a un valor
+print(nuevo["nombre"]) #Acceder a un valor  
 print(nuevo1["edad"]) #Acceder a un valor
 print(f"La edad de {nuevo['nombre']} es: {nuevo['edad']} años")
 central = {"Ana":nuevo, "Kamila":nuevo1} #Diccionario que contiene dos diccionarios

@@ -3,7 +3,7 @@
 from pathlib import Path # Importa path (busca el lugar del archivo)
 # Sube desde la src/ a la raiz del proyecto C:\Usuarios\19mar\Python_katt\Python
 ROOT = Path(__file__).resolve().parents[1] 
-TXT = ROOT / "Python" / "mediciones_basico.txt" # Ultima ruta del archivo "Python"
+TXT = ROOT / "Python" / "Lectura de Datos" / "Archs sucios" / "mediciones_basico.txt" # Ultima ruta del archivo "Python"
 # print(ROOT) Imprime la ruta del archivo
 
 # ===LECTURA Y LIMPIEZA DEL ARCHIVO TXT===
